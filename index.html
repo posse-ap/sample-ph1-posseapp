@@ -304,40 +304,43 @@
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
+      var whiteColor = "#fff"
+      var chartColorBlue1 = "#0f71bc"
+      var chartColorBlue2= "#3ccfff"
 
       // 学習時間
       var data = google.visualization.arrayToDataTable([
         ["Date", "Hour", { role: "style" } ],
-        ["", 2, "#0f71bc"],
-        ["2", 8, "#3ccfff"],
-        ["" , 1, "#0f71bc"],
-        ["4", 2, "#3ccfff"],
-        ["" , 3, "#0f71bc"],
-        ["6", 4, "#3ccfff"],
-        ["" , 5, "#0f71bc"],
-        ["8", 6, "#3ccfff"],
-        ["" , 7, "#0f71bc"],
-        ["10", 1, "#3ccfff"],
-        [""  , 2, "#0f71bc"],
-        ["12", 3, "#3ccfff"],
-        [""  , 4, "#0f71bc"],
-        ["14", 7, "#3ccfff"],
-        [""  , 2, "#0f71bc"],
-        ["16", 7, "#3ccfff"],
-        [""  , 4, "#0f71bc"],
-        ["18", 3, "#3ccfff"],
-        [""  , 3.2, "#0f71bc"],
-        ["20", 3.5, "#3ccfff"],
-        [""  , 3.2, "#0f71bc"],
-        ["22", 3.5, "#3ccfff"],
-        [""  , 3.2, "#0f71bc"],
-        ["24", 3.5, "#3ccfff"],
-        [""  , 3.2, "#0f71bc"],
-        ["26", 3.5, "#3ccfff"],
-        [""  , 3.2, "#0f71bc"],
-        ["28", 6.5, "#3ccfff"],
-        ["", 8, "#0f71bc"],
-        ["30", 2, "#3ccfff"],
+        ["", 2, chartColorBlue1],
+        ["2", 8, chartColorBlue2],
+        ["" , 1, chartColorBlue1],
+        ["4", 2, chartColorBlue2],
+        ["" , 3, chartColorBlue1],
+        ["6", 4, chartColorBlue2],
+        ["" , 5, chartColorBlue1],
+        ["8", 6, chartColorBlue2],
+        ["" , 7, chartColorBlue1],
+        ["10", 1, chartColorBlue2],
+        [""  , 2, chartColorBlue1],
+        ["12", 3, chartColorBlue2],
+        [""  , 4, chartColorBlue1],
+        ["14", 7, chartColorBlue2],
+        [""  , 2, chartColorBlue1],
+        ["16", 7, chartColorBlue2],
+        [""  , 4, chartColorBlue1],
+        ["18", 3, chartColorBlue2],
+        [""  , 3.2, chartColorBlue1],
+        ["20", 3.5, chartColorBlue2],
+        [""  , 3.2, chartColorBlue1],
+        ["22", 3.5, chartColorBlue2],
+        [""  , 3.2, chartColorBlue1],
+        ["24", 3.5, chartColorBlue2],
+        [""  , 3.2, chartColorBlue1],
+        ["26", 3.5, chartColorBlue2],
+        [""  , 3.2, chartColorBlue1],
+        ["28", 6.5, chartColorBlue2],
+        ["", 8, chartColorBlue1],
+        ["30", 2, chartColorBlue2],
       ]);
       var view = new google.visualization.DataView(data);
       view.setColumns([0, 1,
@@ -353,7 +356,7 @@
         vAxis:{
           format:'0h',
           gridlines:{
-              color:'#ffffff'
+              color:whiteColor
           }
         }
       };
@@ -368,7 +371,7 @@
         vAxis:{
           format:'0h',
           gridlines:{
-              color:'#ffffff'
+              color:whiteColor
           }
         }
       };
