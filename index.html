@@ -23,7 +23,7 @@
       <div class="cards d-lg-flex justify-content-between">
 
         <div class="left-cards">
-          <div class="time-cards d-flex justify-content-between">
+          <section class="time-cards d-flex justify-content-between">
             <div class="card today-card text-center">
               <p class="time-cards-title mt-2 mt-lg-3 mb-0">Today</p>
               <p class="font-weight-bold h2 lg-h1 my-1 my-lg-2">3</p>
@@ -39,18 +39,18 @@
               <p class="font-weight-bold h2 lg-h1 my-1 my-lg-2">1348</p>
               <p class="mb-2 mb-lg-3 text-muted hour">hour</p>
             </div>
-          </div>
+          </section>
 
           <hr class="d-lg-none">
 
-          <div class="card time-graph-card">
+          <section class="card time-graph-card">
             <div id="pc_columnchart_values" class="d-none d-lg-block"></div>
             <div id="sp_columnchart_values" class="d-block d-lg-none"></div>
-          </div>
+          </section>
         </div>
 
         <div class="right-cards d-flex justify-content-between">
-          <div class="card language-card">
+          <section class="card language-card">
             <div class="language-card-container">
               <p class="font-weight-bold pt-4 lg-h5 mb-0">学習言語</p>
               <div id="language_piechart"></div>
@@ -65,8 +65,8 @@
                 <span class="language">情報システム基礎知識(その他)</span>
               </p>
             </div>
-          </div>
-          <div class="card contents-card">
+          </section>
+          <section class="card contents-card">
             <div class="contents-card-container">
               <p class="font-weight-bold pt-4 lg-h5 mb-0">学習コンテンツ</p>
               <div id="contents_piechart"></div>
@@ -76,7 +76,7 @@
                 <span class="content">POSSE課題</span>
               </p>
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </div>
@@ -99,11 +99,11 @@
           <form action="">
             <div class="form-group d-lg-flex justify-content-between">
               <div class="modal-left-parts">
-                <div class="modal-date-part">
+                <section class="modal-date-part">
                   <p class="font-weight-bold modal-title">学習日</p>
                   <input type="text" id="studyDate" data-toggle="modal" data-target="#modalCalendar">
-                </div>
-                <div class="modal-contents-pc-part d-none d-lg-block pt-3">
+                </section>
+                <section class="modal-contents-pc-part d-none d-lg-block pt-3">
                   <p class="font-weight-bold modal-title">学習コンテンツ (複数選択可)</p>
                   <input id="contents1" type="checkbox" value="N予備校">
                   <label for="contents1">N予備校</label>
@@ -113,9 +113,9 @@
 
                   <input id="contents3" type="checkbox" value="POSSE課題">
                   <label for="contents3">POSSE課題</label>
-                </div>
+                </section>
 
-                <div class="modal-contents-sp-part d-block d-lg-none pt-3">
+                <section class="modal-contents-sp-part d-block d-lg-none pt-3">
                   <p class="font-weight-bold modal-title">学習コンテンツ (複数選択可)</p>
                   <div class="modal-contents-select-box" id="modal-contents-select-box">
                     <select>
@@ -133,9 +133,9 @@
                     <input type="checkbox" id="contents6" value="POSSE課題">
                     <label for="contents6">POSSE課題</label>
                   </div>
-                </div>
+                </section>
 
-                <div class="modal-language-pc-part d-none d-lg-block pt-3">
+                <section class="modal-language-pc-part d-none d-lg-block pt-3">
                   <p class="font-weight-bold modal-title">学習言語 (複数選択可)</p>
                   <input id="language1" type="checkbox" value="HTML">
                   <label for="language1">HTML</label>
@@ -160,7 +160,7 @@
 
                   <input id="language8" type="checkbox" value="情報システム基礎知識(その他)">
                   <label for="language8">情報システム基礎知識(その他)</label>
-                </div>
+                </section>
 
                 <div class="modal-language-sp-part d-block d-lg-none pt-3">
                   <p class="font-weight-bold modal-title">学習言語 (複数選択可)</p>
@@ -198,14 +198,14 @@
                 </div>
               </div>
               <div class="modal-right-parts pt-3 pt-lg-0">
-                <div class="modal-time-part">
+                <section class="modal-time-part">
                   <p class="font-weight-bold modal-title">学習時間</p>
                   <input type="text">
-                </div>
-                <div class="modal-twitter-part pt-3">
+                </section>
+                <section class="modal-twitter-part pt-3">
                   <p class="font-weight-bold modal-title">Twitter用コメント</p>
                   <textarea id="postTwitter" cols="0" rows="9"></textarea>
-                </div>
+                </section>
                 <div class="modal-twitter-auto-part pt-1">
                   <input id="twitter" type="checkbox" checked><label for="twitter">Twitterに自動投稿する</label>
                 </div>
