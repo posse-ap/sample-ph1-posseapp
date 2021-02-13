@@ -56,7 +56,7 @@ body{
   height: auto;
 }
 
-.left-cards, .right-cards{
+.time-section, .study-content-section{
   width: calc((100% - 20px) / 2);
 }
 
@@ -92,6 +92,10 @@ body{
   margin: 0 auto;
 }
 
+.language-card-container h2, .contents-card-container h2{
+  font-size: 1rem;
+}
+
 #language_piechart,
 #contents_piechart{
   height: 60%;
@@ -106,18 +110,16 @@ body{
   fill: none;
 }
 
-.language-tag, .contents-tag{
+.item-list {
   line-height: 30px;
 }
 
-.language-tag span,
-.contents-tag span{
+.item-list span {
   white-space: nowrap;
   padding-right: 10px;
 }
 
-.language-tag span::before,
-.contents-tag span::before{
+.item-list span::before {
   display: inline-block;
   vertical-align: -8%;
   content: '';
@@ -150,7 +152,7 @@ body{
     width: calc(100% - 40px);
   }
   
-  .left-cards, .right-cards{
+  .time-section, .study-content-section{
     width: 100%;
   }
   
@@ -180,7 +182,7 @@ body{
     border: 1px solid rgba(0,0,0,.1);
   }
   
-  .right-cards{
+  .study-content-section{
     margin-top: 16px;
   }
   
@@ -199,19 +201,21 @@ body{
   .language-card-container, .contents-card-container{
     width: calc((100% - 16px));
   }
+
+  .language-card-container h2, .contents-card-container h2{
+    font-size: 1rem;
+  }
   
-  .language-tag, .contents-tag{
+  .item-list {
     line-height: 20px;
     font-size: 8px;
   }
   
-  .language-tag span,
-  .contents-tag span{
+  .item-list span {
     padding-right: 4px;
   }
   
-  .language-tag span::before,
-  .contents-tag span::before{
+  .item-list span::before {
     display: inline-block;
     vertical-align: middle;
     content: '';

@@ -11,7 +11,9 @@
   <header class="header">
     <div class="d-lg-flex header-container mx-auto">
       <div class="d-flex">
-        <img src="./img/header-logo.png" class="header-img pr-3">
+        <h1>
+          <img src="./img/header-logo.png" class="header-img pr-3">
+        </h1>
         <p class="header-text my-auto">4th week</p>
       </div>
       <button class="post-btn mr-0 ml-auto my-auto d-none d-lg-block" data-toggle="modal" data-target="#modalPost">記録・投稿</button>
@@ -22,24 +24,24 @@
     <div class="main-container mx-auto">
       <div class="cards d-lg-flex justify-content-between">
 
-        <div class="left-cards">
-          <section class="time-cards d-flex justify-content-between">
-            <div class="card today-card text-center">
-              <p class="time-cards-title mt-2 mt-lg-3 mb-0">Today</p>
-              <p class="font-weight-bold h2 lg-h1 my-1 my-lg-2">3</p>
-              <p class="mb-2 mb-lg-3 text-muted hour">hour</p>
+        <div class="time-section">
+          <dl class="time-cards d-flex justify-content-between">
+            <div class="card text-center py-2 py-lg-3">
+              <dt class="time-cards-title mb-0">Today</dt>
+              <span class="font-weight-bold h2 lg-h1 my-1 my-lg-2">3</span>
+              <span class="text-muted hour">hour</span>
             </div>
-            <div class="card month-card text-center">
-              <p class="time-cards-title mt-2 mt-lg-3 mb-0">Month</p>
-              <p class="font-weight-bold h2 lg-h1 my-1 my-lg-2">120</p>
-              <p class="mb-2 mb-lg-3 text-muted hour">hour</p>
+            <div class="card text-center py-2 py-lg-3">
+              <dt class="time-cards-title mb-0">Month</dt>
+              <span class="font-weight-bold h2 lg-h1 my-1 my-lg-2">120</span>
+              <span class="text-muted hour">hour</span>
             </div>
-            <div class="card total-card text-center">
-              <p class="time-cards-title mt-2 mt-lg-3 mb-0">Total</p>
-              <p class="font-weight-bold h2 lg-h1 my-1 my-lg-2">1348</p>
-              <p class="mb-2 mb-lg-3 text-muted hour">hour</p>
+            <div class="card text-center py-2 py-lg-3">
+              <dt class="time-cards-title mb-0">Total</dt>
+              <span class="font-weight-bold h2 lg-h1 my-1 my-lg-2">1348</span>
+              <span class="text-muted hour">hour</span>
             </div>
-          </section>
+          </dl>
 
           <hr class="d-lg-none">
 
@@ -49,31 +51,31 @@
           </section>
         </div>
 
-        <div class="right-cards d-flex justify-content-between">
+        <div class="study-content-section d-flex justify-content-between">
           <section class="card language-card">
-            <div class="language-card-container">
-              <p class="font-weight-bold pt-4 lg-h5 mb-0">学習言語</p>
+            <div class="language-card-container py-4">
+              <h2 class="font-weight-bold lg-h5 mb-0">学習言語</h2>
               <div id="language_piechart"></div>
-              <p class="language-tag">
-                <span class="language">HTML</span>
-                <span class="language">CSS</span>
-                <span class="language">JavaScript</span>
-                <span class="language">PHP</span>
-                <span class="language">Laravel</span>
-                <span class="language">SQL</span>
-                <span class="language">SHELL</span>
-                <span class="language">情報システム基礎知識(その他)</span>
+              <p class="item-list">
+                <span class="item">HTML</span>
+                <span class="item">CSS</span>
+                <span class="item">JavaScript</span>
+                <span class="item">PHP</span>
+                <span class="item">Laravel</span>
+                <span class="item">SQL</span>
+                <span class="item">SHELL</span>
+                <span class="item">情報システム基礎知識(その他)</span>
               </p>
             </div>
           </section>
           <section class="card contents-card">
-            <div class="contents-card-container">
-              <p class="font-weight-bold pt-4 lg-h5 mb-0">学習コンテンツ</p>
+            <div class="contents-card-container py-4">
+              <h2 class="font-weight-bold lg-h5 mb-0">学習コンテンツ</h2>
               <div id="contents_piechart"></div>
-              <p class="contents-tag">
-                <span class="content">ドットインストール</span>
-                <span class="content">N予備校</span><br>
-                <span class="content">POSSE課題</span>
+              <p class="item-list">
+                <span class="item">ドットインストール</span>
+                <span class="item">N予備校</span><br>
+                <span class="item">POSSE課題</span>
               </p>
             </div>
           </section>
@@ -296,10 +298,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript" src="./js/calendar"></script>
-  <script type="text/javascript" src="./js/chart"></script>
-  <script type="text/javascript" src="./js/displayThisMonth"></script>
-  <script type="text/javascript" src="./js/modal"></script>
-  <script type="text/javascript" src="./js/utils"></script>
+  <script type="text/javascript" src="./js/calendar/index.js"></script>
+  <script type="text/javascript" src="./js/chart/index.js"></script>
+  <script type="text/javascript" src="./js/displayThisMonth/index.js"></script>
+  <script type="text/javascript" src="./js/modal/index.js"></script>
+  <script type="text/javascript" src="./js/utils/index.js"></script>
 </body>
 </html>
