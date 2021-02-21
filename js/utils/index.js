@@ -20,7 +20,7 @@
     }
 
     window.addEventListener('resize', $.throttle(250, function(){
-        changeWhiteSpace('.language', '.language-tag')
-        changeWhiteSpace('.content', '.contents-tag')
+        changeWhiteSpace('.language', '.item-list')
+        changeWhiteSpace('.content', '.item-list')
     }))
 }

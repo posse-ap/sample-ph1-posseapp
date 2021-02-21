@@ -117,38 +117,6 @@
         var chart = new google.visualization.PieChart(document.getElementById('language_piechart'));
         chart.draw(data, options);
 
-        // var options_legend = {
-        //   legend:{
-        //     position:"top",
-        //     maxLines: 10,
-        //     textStyle: {
-        //       fontSize: 14,
-        //       color: "#666666"
-        //     }
-        //   },
-        //   pieHole:0.5,
-        //   slices: {
-        //     0: { color: '#2222ff' },
-        //     1: { color: '#3344ff' },
-        //     2: { color: '#4466ff' },
-        //     3: { color: '#5588ff' },
-        //     4: { color: '#6699ff' },
-        //     5: { color: '#77aaff' },
-        //     6: { color: '#88ccff' },
-        //     7: { color: '#99ddff' },
-        //     8: { color: '#aaeeff' },
-        //   },
-        //   chartArea: {
-        //     height: 0,
-        //     width: '88%'
-        //   },
-        //   enableInteractivity: false,
-        // };
-
-        // var chart = new google.visualization.PieChart(document.getElementById('language_piechart_legend'));
-
-        // chart.draw(data, options_legend);
-
         // 学習コンテンツ
         var data = google.visualization.arrayToDataTable([
             ['Contents', 'Hour'],
@@ -175,34 +143,8 @@
 
         var chart = new google.visualization.PieChart(document.getElementById('contents_piechart'));
         chart.draw(data, options);
-
-        // var options_legend = {
-        //   legend:{
-        //     position:"top",
-        //     maxLines: 10,
-        //     textStyle: {
-        //       fontSize: 14,
-        //       color: "#666666"
-        //     }
-        //   },
-        //   pieHole:0.5,
-        //   slices: {
-        //     0: { color: '#2222ff' },
-        //     1: { color: '#66aaff' },
-        //     2: { color: '#aaddff' },
-        //   },
-        //   chartArea: {
-        //     height: 0,
-        //     width: '88%'
-        //   },
-        //   enableInteractivity: false,
-        // };
-
-        // var chart = new google.visualization.PieChart(document.getElementById('contents_piechart_legend'));
-
-        // chart.draw(data, options_legend);
     }
 
-// resize時に、チャートを作り直し、windowサイズに合わせたチャートをレンダリングする
+    // resize時に、チャートを作り直し、windowサイズに合わせたチャートをレンダリングする
     window.addEventListener('resize', $.throttle(250, drawChart))
 }
