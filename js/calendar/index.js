@@ -72,7 +72,6 @@
     function getNextMonth(){
         const dates = [];
         const nextDays = new Date(calendarYear, calendarMonth + 1, 0).getDay();
-
         for(let i = 1; i < 7 - nextDays; i++){
             dates.push({
                 date: i,
@@ -86,8 +85,7 @@
     }
 
     function createCalendar(){
-        const tbody = document.querySelector('tbody');
-
+        const tbody = document.querySelector('tbody.calendar');
         while(tbody.firstChild){
             tbody.removeChild(tbody.firstChild);
         }
@@ -106,7 +104,6 @@
         for(let i = 0; i < weeksCount; i++){
             weeks.push(dates.splice(0, 7));
         }
-
         weeks.forEach(week => {
             const tr = document.createElement('tr');
             week.forEach(date => {
@@ -126,9 +123,8 @@
 
                 tr.appendChild(td);
             });
-            document.querySelector('tbody').appendChild(tr);
+            document.querySelector('tbody.calendar').appendChild(tr);
         });
-
     }
 
     document.getElementById('calendarPrev').addEventListener('click', ()=>{
@@ -147,7 +143,6 @@
             calendarYear++;
             calendarMonth = 0;
         }
-
         createCalendar();
     });
 
