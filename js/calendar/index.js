@@ -21,7 +21,7 @@
         for(let i = 0; i < prevDays; i++){
             dates.unshift({
                 date: prevLastDate - i,
-                today: false,
+                selectedDate: false,
                 disabled: true,
                 pastDays: false,
             });
@@ -38,14 +38,14 @@
             if(i < calendarToday.getDate()){
                 dates.push({
                     date: i,
-                    today: false,
+                    selectedDate: false,
                     disabled: false,
                     pastDays: true,
                 });
             }else{
                 dates.push({
                     date: i,
-                    today: false,
+                    selectedDate: false,
                     disabled: false,
                     pastDays: false,
                 });
@@ -67,7 +67,7 @@
         }
 
         if(calendarYear === calendarToday.getFullYear() && calendarMonth === calendarToday.getMonth()){
-            dates[calendarToday.getDate() - 1].today = true;
+            dates[calendarToday.getDate() - 1].selectedDate = true;
         }
 
         return dates;
@@ -79,7 +79,7 @@
         for(let i = 1; i < 7 - nextDays; i++){
             dates.push({
                 date: i,
-                today: false,
+                selectedDate: false,
                 disabled: true,
                 pastDays: false,
             });
@@ -115,8 +115,8 @@
 
                 td.textContent = date.date;
 
-                if(date.today){
-                    td.classList.add('today');
+                if(date.selectedDate){
+                    td.classList.add('selected-date');
                 }
                 if(date.disabled){
                     td.classList.add('disabled');
@@ -138,11 +138,11 @@
         validaDates.forEach(td => {
             td.addEventListener('click', (e) => {
                 document.getElementById('studyDate').value = studyDateText(e.target.textContent)
-                const today = document.querySelector('td.today')
-                if (today) {
-                    today.classList.remove('today')
+                const selectedDate = document.querySelector('td.selected-date')
+                if (selectedDate) {
+                    selectedDate.classList.remove('selected-date')
                 }
-                td.classList.add('today')
+                td.classList.add('selected-date')
             })
         })
     }

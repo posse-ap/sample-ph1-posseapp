@@ -528,7 +528,7 @@ body{
   visibility: hidden;
 }
 
-.modal-calendar .today{
+.modal-calendar .selected-date {
   background-color: #0f71bc;
   border-radius: 50%;
   color: #fff;
