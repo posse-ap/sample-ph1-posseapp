@@ -7,7 +7,11 @@
     let calendarMonth = calendarToday.getMonth();
     let calendarDate = calendarToday.getDate();
 
-    document.getElementById('studyDate').value = `${calendarYear}年${String(calendarMonth + 1).padStart(2, '0')}月${String(calendarDate).padStart(2, '0')}日`;
+    function studyDateText(date = String(calendarDate).padStart(2, '0'), year = calendarYear, month = calendarMonth) {
+        return `${year}年${String(month + 1).padStart(2, '0')}月${date}日`;
+    }
+
+    document.getElementById('studyDate').value = studyDateText()
 
     function getPrevMonth(){
         const dates = [];
@@ -125,6 +129,22 @@
             });
             document.querySelector('tbody.calendar').appendChild(tr);
         });
+
+        addSetToday()
+    }
+
+    function addSetToday() {
+        const validaDates = document.querySelectorAll('tbody.calendar td:not(.disabled):not(.past-days)')
+        validaDates.forEach(td => {
+            td.addEventListener('click', (e) => {
+                document.getElementById('studyDate').value = studyDateText(e.target.textContent)
+                const today = document.querySelector('td.today')
+                if (today) {
+                    today.classList.remove('today')
+                }
+                td.classList.add('today')
+            })
+        })
     }
 
     document.getElementById('calendarPrev').addEventListener('click', ()=>{
