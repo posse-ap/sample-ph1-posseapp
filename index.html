@@ -4,14 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="./css/style.css">
   <title>POSSE</title>
 </head>
 <body>
   <header class="header">
     <div class="d-lg-flex header-container mx-auto">
       <div class="d-flex">
-        <img src="img/header-logo.png" class="header-img pr-3">
+        <h1>
+          <img src="./img/header-logo.png" class="header-img pr-3" alt="POSSE">
+        </h1>
         <p class="header-text my-auto">4th week</p>
       </div>
       <button class="post-btn mr-0 ml-auto my-auto d-none d-lg-block" data-toggle="modal" data-target="#modalPost">記録・投稿</button>
@@ -22,61 +24,61 @@
     <div class="main-container mx-auto">
       <div class="cards d-lg-flex justify-content-between">
 
-        <div class="left-cards">
-          <div class="time-cards d-flex justify-content-between">
-            <div class="card today-card text-center">
-              <p class="time-cards-title mt-2 mt-lg-3 mb-0">Today</p>
-              <p class="font-weight-bold h2 lg-h1 my-1 my-lg-2">3</p>
-              <p class="mb-2 mb-lg-3 text-muted hour">hour</p>
+        <div class="time-section">
+          <dl class="time-cards d-flex justify-content-between">
+            <div class="card text-center py-2 py-lg-3">
+              <dt class="time-cards-title mb-0">Today</dt>
+              <span class="font-weight-bold h2 lg-h1 my-1 my-lg-2">3</span>
+              <span class="text-muted hour">hour</span>
             </div>
-            <div class="card month-card text-center">
-              <p class="time-cards-title mt-2 mt-lg-3 mb-0">Month</p>
-              <p class="font-weight-bold h2 lg-h1 my-1 my-lg-2">120</p>
-              <p class="mb-2 mb-lg-3 text-muted hour">hour</p>
+            <div class="card text-center py-2 py-lg-3">
+              <dt class="time-cards-title mb-0">Month</dt>
+              <span class="font-weight-bold h2 lg-h1 my-1 my-lg-2">120</span>
+              <span class="text-muted hour">hour</span>
             </div>
-            <div class="card total-card text-center">
-              <p class="time-cards-title mt-2 mt-lg-3 mb-0">Total</p>
-              <p class="font-weight-bold h2 lg-h1 my-1 my-lg-2">1348</p>
-              <p class="mb-2 mb-lg-3 text-muted hour">hour</p>
+            <div class="card text-center py-2 py-lg-3">
+              <dt class="time-cards-title mb-0">Total</dt>
+              <span class="font-weight-bold h2 lg-h1 my-1 my-lg-2">1348</span>
+              <span class="text-muted hour">hour</span>
             </div>
-          </div>
+          </dl>
 
           <hr class="d-lg-none">
 
-          <div class="card time-graph-card">
+          <section class="card time-graph-card">
             <div id="pc_columnchart_values" class="d-none d-lg-block"></div>
             <div id="sp_columnchart_values" class="d-block d-lg-none"></div>
-          </div>
+          </section>
         </div>
 
-        <div class="right-cards d-flex justify-content-between">
-          <div class="card language-card">
-            <div class="language-card-container">
-              <p class="font-weight-bold pt-4 lg-h5 mb-0">学習言語</p>
+        <div class="study-content-section d-flex justify-content-between">
+          <section class="card language-card">
+            <div class="language-card-container py-4">
+              <h2 class="font-weight-bold lg-h5 mb-0">学習言語</h2>
               <div id="language_piechart"></div>
-              <p class="language-tag">
-                <span class="text-nowrap">HTML</span>
-                <span class="text-nowrap">CSS</span>
-                <span class="text-nowrap">JavaScript</span>
-                <span class="text-nowrap">PHP</span>
-                <span class="text-nowrap">Laravel</span>
-                <span class="text-nowrap">SQL</span>
-                <span class="text-nowrap">SHELL</span>
-                <span class="text-nowrap">情報システム基礎知識(その他)</span>
-              </p>
+              <div class="item-list">
+                <span class="item">HTML</span>
+                <span class="item">CSS</span>
+                <span class="item">JavaScript</span>
+                <span class="item">PHP</span>
+                <span class="item">Laravel</span>
+                <span class="item">SQL</span>
+                <span class="item">SHELL</span>
+                <span class="item">情報システム基礎知識(その他)</span>
+              </div>
             </div>
-          </div>
-          <div class="card contents-card">
-            <div class="contents-card-container">
-              <p class="font-weight-bold pt-4 lg-h5 mb-0">学習コンテンツ</p>
+          </section>
+          <section class="card contents-card">
+            <div class="contents-card-container py-4">
+              <h2 class="font-weight-bold lg-h5 mb-0">学習コンテンツ</h2>
               <div id="contents_piechart"></div>
-              <p class="contents-tag">
-                <span class="text-nowrap">ドットインストール</span>
-                <span class="text-nowrap">N予備校</span><br>
-                <span class="text-nowrap">POSSE課題</span>
-              </p>
+              <div class="item-list">
+                <span class="item">ドットインストール</span>
+                <span class="item">N予備校</span><br>
+                <span class="item">POSSE課題</span>
+              </div>
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </div>
@@ -99,11 +101,11 @@
           <form action="">
             <div class="form-group d-lg-flex justify-content-between">
               <div class="modal-left-parts">
-                <div class="modal-date-part">
+                <section class="modal-date-part">
                   <p class="font-weight-bold modal-title">学習日</p>
                   <input type="text" id="studyDate" data-toggle="modal" data-target="#modalCalendar">
-                </div>
-                <div class="modal-contents-pc-part d-none d-lg-block pt-3">
+                </section>
+                <section class="modal-contents-pc-part d-none d-lg-block pt-3">
                   <p class="font-weight-bold modal-title">学習コンテンツ (複数選択可)</p>
                   <input id="contents1" type="checkbox" value="N予備校">
                   <label for="contents1">N予備校</label>
@@ -113,9 +115,9 @@
 
                   <input id="contents3" type="checkbox" value="POSSE課題">
                   <label for="contents3">POSSE課題</label>
-                </div>
+                </section>
 
-                <div class="modal-contents-sp-part d-block d-lg-none pt-3">
+                <section class="modal-contents-sp-part d-block d-lg-none pt-3">
                   <p class="font-weight-bold modal-title">学習コンテンツ (複数選択可)</p>
                   <div class="modal-contents-select-box" id="modal-contents-select-box">
                     <select>
@@ -133,9 +135,9 @@
                     <input type="checkbox" id="contents6" value="POSSE課題">
                     <label for="contents6">POSSE課題</label>
                   </div>
-                </div>
+                </section>
 
-                <div class="modal-language-pc-part d-none d-lg-block pt-3">
+                <section class="modal-language-pc-part d-none d-lg-block pt-3">
                   <p class="font-weight-bold modal-title">学習言語 (複数選択可)</p>
                   <input id="language1" type="checkbox" value="HTML">
                   <label for="language1">HTML</label>
@@ -160,7 +162,7 @@
 
                   <input id="language8" type="checkbox" value="情報システム基礎知識(その他)">
                   <label for="language8">情報システム基礎知識(その他)</label>
-                </div>
+                </section>
 
                 <div class="modal-language-sp-part d-block d-lg-none pt-3">
                   <p class="font-weight-bold modal-title">学習言語 (複数選択可)</p>
@@ -198,14 +200,14 @@
                 </div>
               </div>
               <div class="modal-right-parts pt-3 pt-lg-0">
-                <div class="modal-time-part">
+                <section class="modal-time-part">
                   <p class="font-weight-bold modal-title">学習時間</p>
                   <input type="text">
-                </div>
-                <div class="modal-twitter-part pt-3">
+                </section>
+                <section class="modal-twitter-part pt-3">
                   <p class="font-weight-bold modal-title">Twitter用コメント</p>
                   <textarea id="postTwitter" cols="0" rows="9"></textarea>
-                </div>
+                </section>
                 <div class="modal-twitter-auto-part pt-1">
                   <input id="twitter" type="checkbox" checked><label for="twitter">Twitterに自動投稿する</label>
                 </div>
@@ -246,7 +248,7 @@
                 </tr>
               </thead>
 
-              <tbody>
+              <tbody class="calendar" />
               </tbody>
             </table>
             <button type="button" class="post-btn d-block mx-auto mt-4" id="decideCalendar">決定</button>
@@ -292,211 +294,14 @@
   <!-- modal success -->
   
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js" integrity="sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw==" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="js/main.js"></script>
-
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-  <script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-
-      // 学習時間
-      var data = google.visualization.arrayToDataTable([
-        ["Date", "Hour", { role: "style" } ],
-        ["", 2, "#0f71bc"],
-        ["2", 8, "#3ccfff"],
-        ["" , 1, "#0f71bc"],
-        ["4", 2, "#3ccfff"],
-        ["" , 3, "#0f71bc"],
-        ["6", 4, "#3ccfff"],
-        ["" , 5, "#0f71bc"],
-        ["8", 6, "#3ccfff"],
-        ["" , 7, "#0f71bc"],
-        ["10", 1, "#3ccfff"],
-        [""  , 2, "#0f71bc"],
-        ["12", 3, "#3ccfff"],
-        [""  , 4, "#0f71bc"],
-        ["14", 7, "#3ccfff"],
-        [""  , 2, "#0f71bc"],
-        ["16", 7, "#3ccfff"],
-        [""  , 4, "#0f71bc"],
-        ["18", 3, "#3ccfff"],
-        [""  , 3.2, "#0f71bc"],
-        ["20", 3.5, "#3ccfff"],
-        [""  , 3.2, "#0f71bc"],
-        ["22", 3.5, "#3ccfff"],
-        [""  , 3.2, "#0f71bc"],
-        ["24", 3.5, "#3ccfff"],
-        [""  , 3.2, "#0f71bc"],
-        ["26", 3.5, "#3ccfff"],
-        [""  , 3.2, "#0f71bc"],
-        ["28", 6.5, "#3ccfff"],
-        ["", 8, "#0f71bc"],
-        ["30", 2, "#3ccfff"],
-      ]);
-      var view = new google.visualization.DataView(data);
-      view.setColumns([0, 1,
-                        { calc: "stringify",
-                          type: "string",
-                          role: "annotation" },
-                        2]);
-      var pc_options = {
-        width: '100%',
-        height: '400',
-        bar: {groupWidth: "50%"},
-        legend: { position: "none" },
-        vAxis:{
-          format:'0h',
-          gridlines:{
-              color:'#ffffff'
-          }
-        }
-      };
-      var chart = new google.visualization.ColumnChart(document.getElementById("pc_columnchart_values"));
-      chart.draw(view, pc_options);
-
-      var sp_options = {
-        width: '100%',
-        height: '200',
-        bar: {groupWidth: "50%"},
-        legend: { position: "none" },
-        vAxis:{
-          format:'0h',
-          gridlines:{
-              color:'#ffffff'
-          }
-        }
-      };
-      var chart = new google.visualization.ColumnChart(document.getElementById("sp_columnchart_values"));
-      chart.draw(view, sp_options);
-
-      // 学習言語
-      var data = google.visualization.arrayToDataTable([
-        ['Language', 'Hour'],
-        ['HTML', 9],
-        ['CSS', 2],
-        ['JavaScript', 6],
-        ['PHP', 2],
-        ['Laravel', 7],
-        ['SQL', 5],
-        ['SHELL', 4],
-        ['情報システム基礎知識(その他)', 1],
-      ]);
-
-      var options = {
-        legend:{
-          position:"none",
-        },
-        pieHole:0.5,
-        slices: {
-          0: { color: '#2222ff' },
-          1: { color: '#3344ff' },
-          2: { color: '#4466ff' },
-          3: { color: '#5588ff' },
-          4: { color: '#6699ff' },
-          5: { color: '#77aaff' },
-          6: { color: '#88ccff' },
-          7: { color: '#99ddff' },
-          8: { color: '#aaeeff' },
-        },
-        chartArea: {
-          width: '100%',
-          height: '100%'
-        }
-      };
-
-      var chart = new google.visualization.PieChart(document.getElementById('language_piechart'));
-      chart.draw(data, options);
-
-      // var options_legend = {
-      //   legend:{
-      //     position:"top",
-      //     maxLines: 10,
-      //     textStyle: {
-      //       fontSize: 14,
-      //       color: "#666666"
-      //     }
-      //   },
-      //   pieHole:0.5,
-      //   slices: {
-      //     0: { color: '#2222ff' },
-      //     1: { color: '#3344ff' },
-      //     2: { color: '#4466ff' },
-      //     3: { color: '#5588ff' },
-      //     4: { color: '#6699ff' },
-      //     5: { color: '#77aaff' },
-      //     6: { color: '#88ccff' },
-      //     7: { color: '#99ddff' },
-      //     8: { color: '#aaeeff' },
-      //   },
-      //   chartArea: {
-      //     height: 0,
-      //     width: '88%'
-      //   },
-      //   enableInteractivity: false,
-      // };
-
-      // var chart = new google.visualization.PieChart(document.getElementById('language_piechart_legend'));
-
-      // chart.draw(data, options_legend);
-
-      // 学習コンテンツ
-      var data = google.visualization.arrayToDataTable([
-        ['Contents', 'Hour'],
-        ['ドットインストール', 9],
-        ['N予備校', 4],
-        ['POSSE課題', 6],
-      ]);
-
-      var options = {
-        legend:{
-          position:"none",
-        },
-        pieHole:0.5,
-        slices: {
-          0: { color: '#2222ff' },
-          1: { color: '#66aaff' },
-          2: { color: '#aaddff' },
-        },
-        chartArea: {
-          width: '100%',
-          height: '100%',
-        }
-      };
-
-      var chart = new google.visualization.PieChart(document.getElementById('contents_piechart'));
-      chart.draw(data, options);
-
-      // var options_legend = {
-      //   legend:{
-      //     position:"top",
-      //     maxLines: 10,
-      //     textStyle: {
-      //       fontSize: 14,
-      //       color: "#666666"
-      //     }
-      //   },
-      //   pieHole:0.5,
-      //   slices: {
-      //     0: { color: '#2222ff' },
-      //     1: { color: '#66aaff' },
-      //     2: { color: '#aaddff' },
-      //   },
-      //   chartArea: {
-      //     height: 0,
-      //     width: '88%'
-      //   },
-      //   enableInteractivity: false,
-      // };
-
-      // var chart = new google.visualization.PieChart(document.getElementById('contents_piechart_legend'));
-
-      // chart.draw(data, options_legend);
-    }
-  </script>
+  <script type="text/javascript" src="./js/calendar/index.js"></script>
+  <script type="text/javascript" src="./js/chart/index.js"></script>
+  <script type="text/javascript" src="./js/displayThisMonth/index.js"></script>
+  <script type="text/javascript" src="./js/modal/index.js"></script>
+  <script type="text/javascript" src="./js/utils/index.js"></script>
 </body>
 </html>
