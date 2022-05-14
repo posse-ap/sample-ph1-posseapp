@@ -4,20 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POSSE Webapp</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/style.css">
+  <!-- Google fonts読み込み -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <!-- icon読み込み -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="https://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
-
-  <title>POSSE Webapp</title>
 </head>
 
 <body>
@@ -27,10 +25,10 @@
         <img src="./img/logo.png" class="header__title__logo" alt="POSSE">
         <span class="header__title__inline">4th week</span>
       </h1>
-      <button class="button header__button" data-toggle="modal" data-target="#modalPost">記録・投稿</button>
+      <button class="button header__button" data-toggle="modal" data-target="#modal">記録・投稿</button>
     </div>
   </header>
-  <!-- .header -->
+  <!-- /.header -->
 
   <main class="main">
     <div class="main__inner">
@@ -59,7 +57,7 @@
           </div>
         </dl>
         <div class="card time__graph">
-          <canvas id="js-barChart" width="500" height="320"></canvas>
+          <canvas id="js-timeChart" width="496" height="322"></canvas>
         </div>
       </section>
       <section class="study">
@@ -76,169 +74,182 @@
       </section>
     </div>
   </main>
-  <!-- .main -->
+  <!-- /.main -->
 
   <footer class="footer">
     <div class="footer__date">
-      <button class="footer__date__button footer__date__button--prev" id="prev"><i
-          class="fa-solid fa-chevron-left"></i></button>
+      <button class="footer__date__button arrow arrow--prev" id="prev">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
       <span class="footer__date__inline"><span id="thisMonth"></span></span>
-      <button class="footer__date__button footer__date__button--next" id="next"><i
-          class="fa-solid fa-chevron-right"></i></button>
+      <button class="footer__date__button arrow arrow--next" id="next">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
     </div>
 
-    <button class="post-btn mx-auto d-block d-lg-none" data-toggle="modal" data-target="#modalPost">記録・投稿</button>
+    <button class="button footer__button" data-toggle="modal" data-target="#modal">記録・投稿</button>
   </footer>
+  <!-- .footer -->
 
-  <!-- modal main -->
-  <div class="modal fade" id="modalPost" tab-index="-1" aria-hidden="true">
+  <div class="modal fade" id="modal" tab-index="-1" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+      <div class="modal-content modal__container">
+        <button type="button" class="close modal__close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span>
         </button>
-        <div class="modal-container">
-          <form action="">
-            <div class="form-group d-lg-flex justify-content-between">
-              <div class="modal-left-parts">
-                <section class="modal-date-part">
-                  <p class="font-weight-bold modal-title">学習日</p>
-                  <input type="text" id="studyDate" data-toggle="modal" data-target="#modalCalendar">
-                </section>
-                <section class="modal-contents-pc-part d-none d-lg-block pt-3">
-                  <p class="font-weight-bold modal-title">学習コンテンツ (複数選択可)</p>
-                  <input id="contents1" type="checkbox" value="N予備校">
-                  <label for="contents1">N予備校</label>
-
-                  <input id="contents2" type="checkbox" value="ドットインストール">
-                  <label for="contents2">ドットインストール</label>
-
-                  <input id="contents3" type="checkbox" value="POSSE課題">
-                  <label for="contents3">POSSE課題</label>
-                </section>
-
-                <section class="modal-contents-sp-part d-block d-lg-none pt-3">
-                  <p class="font-weight-bold modal-title">学習コンテンツ (複数選択可)</p>
-                  <div class="modal-contents-select-box" id="modal-contents-select-box">
-                    <select>
-                      <option>N予備校</option>
-                    </select>
-                    <div class="modal-contents-over-select"></div>
-                  </div>
-                  <div id="modal-contents-check-box">
-                    <input type="checkbox" id="contents4" value="N予備校">
-                    <label for="contents4">N予備校</label>
-
-                    <input type="checkbox" id="contents5" value="ドットインストール">
-                    <label for="contents5">ドットインストール</label>
-
-                    <input type="checkbox" id="contents6" value="POSSE課題">
-                    <label for="contents6">POSSE課題</label>
-                  </div>
-                </section>
-
-                <section class="modal-language-pc-part d-none d-lg-block pt-3">
-                  <p class="font-weight-bold modal-title">学習言語 (複数選択可)</p>
-                  <input id="language1" type="checkbox" value="HTML">
-                  <label for="language1">HTML</label>
-
-                  <input id="language2" type="checkbox" value="CSS">
-                  <label for="language2">CSS</label>
-
-                  <input id="language3" type="checkbox" value="JavaScript">
-                  <label for="language3">JavaScript</label>
-
-                  <input id="language4" type="checkbox" value="PHP">
-                  <label for="language4">PHP</label>
-
-                  <input id="language5" type="checkbox" value="Laravel">
-                  <label for="language5">Laravel</label>
-
-                  <input id="language6" type="checkbox" value="SQL">
-                  <label for="language6">SQL</label>
-
-                  <input id="language7" type="checkbox" value="SHELL">
-                  <label for="language7">SHELL</label>
-
-                  <input id="language8" type="checkbox" value="情報システム基礎知識(その他)">
-                  <label for="language8">情報システム基礎知識(その他)</label>
-                </section>
-
-                <div class="modal-language-sp-part d-block d-lg-none pt-3">
-                  <p class="font-weight-bold modal-title">学習言語 (複数選択可)</p>
-                  <div class="modal-language-select-box" id="modal-language-select-box">
-                    <select>
-                      <option>HTML</option>
-                    </select>
-                    <div class="modal-language-over-select"></div>
-                  </div>
-                  <div id="modal-language-check-box">
-                    <input id="language9" type="checkbox" value="HTML">
-                    <label for="language9">HTML</label>
-
-                    <input id="language10" type="checkbox" value="CSS">
-                    <label for="language10">CSS</label>
-
-                    <input id="language11" type="checkbox" value="JavaScript">
-                    <label for="language11">JavaScript</label>
-
-                    <input id="language12" type="checkbox" value="PHP">
-                    <label for="language12">PHP</label>
-
-                    <input id="language13" type="checkbox" value="Laravel">
-                    <label for="language13">Laravel</label>
-
-                    <input id="language14" type="checkbox" value="SQL">
-                    <label for="language14">SQL</label>
-
-                    <input id="language15" type="checkbox" value="SHELL">
-                    <label for="language15">SHELL</label>
-
-                    <input id="language16" type="checkbox" value="情報システム基礎知識(その他)">
-                    <label for="language16">情報システム基礎知識(その他)</label>
-                  </div>
-                </div>
+        <form class="form" action="">
+          <div class="form__inner">
+            <div class="form__list">
+              <div class="form__item">
+                <span class="form__title">学習日</span>
+                <input type="text" id="js-studyDate">
               </div>
-              <div class="modal-right-parts pt-3 pt-lg-0">
-                <section class="modal-time-part">
-                  <p class="font-weight-bold modal-title">学習時間</p>
-                  <input type="text">
-                </section>
-                <section class="modal-twitter-part pt-3">
-                  <p class="font-weight-bold modal-title">Twitter用コメント</p>
-                  <textarea id="postTwitter" cols="0" rows="9"></textarea>
-                </section>
-                <div class="modal-twitter-auto-part pt-1">
-                  <input id="twitter" type="checkbox" checked><label for="twitter">Twitterに自動投稿する</label>
-                </div>
+
+              <div class="form__item">
+                <span class="form__title">学習コンテンツ (複数選択可)</span>
+                <ul id="js-checkbox-contents" class="form__checkbox__list">
+                  <!-- <li class="form__checkbox">
+                    <label class="form__checkbox__label">
+                      <input type="checkbox">
+                      <span class="form__checkbox__label__inline form__checkbox__label__inline--background">
+                        <span class="form__checkbox__label__icon"><i class="fa-solid fa-check"></i></span>
+                        N予備校
+                      </span>
+                    </label>
+                  </li>
+                  <li class="form__checkbox">
+                    <label class="form__checkbox__label">
+                      <input type="checkbox">
+                      <span class="form__checkbox__label__inline form__checkbox__label__inline--background">
+                        <span class="form__checkbox__label__icon"><i class="fa-solid fa-check"></i></span>
+                        ドットインストール
+                      </span>
+                    </label>
+                  </li>
+                  <li class="form__checkbox">
+                    <label class="form__checkbox__label">
+                      <input type="checkbox">
+                      <span class="form__checkbox__label__inline form__checkbox__label__inline--background">
+                        <span class="form__checkbox__label__icon"><i class="fa-solid fa-check"></i></span>
+                        POSSE課題
+                      </span>
+                    </label>
+                  </li> -->
+                </ul>
+              </div>
+
+              <div class="form__item">
+                <span class="form__title">学習言語 (複数選択可)</span>
+                <ul id="js-checkbox-language" class="form__checkbox__list">
+                  <!-- <li class="form__checkbox">
+                    <label class="form__checkbox__label">
+                      <input type="checkbox">
+                      <span class="form__checkbox__label__inline form__checkbox__label__inline--background">
+                        <span class="form__checkbox__label__icon"><i class="fa-solid fa-check"></i></span>
+                        HTML
+                      </span>
+                    </label>
+                  </li>
+                  <li class="form__checkbox">
+                    <label class="form__checkbox__label">
+                      <input type="checkbox">
+                      <span class="form__checkbox__label__inline form__checkbox__label__inline--background">
+                        <span class="form__checkbox__label__icon"><i class="fa-solid fa-check"></i></span>
+                        CSS
+                      </span>
+                    </label>
+                  </li>
+                  <li class="form__checkbox">
+                    <label class="form__checkbox__label">
+                      <input type="checkbox">
+                      <span class="form__checkbox__label__inline form__checkbox__label__inline--background">
+                        <span class="form__checkbox__label__icon"><i class="fa-solid fa-check"></i></span>
+                        JavaScript
+                      </span>
+                    </label>
+                  </li>
+                  <li class="form__checkbox">
+                    <label class="form__checkbox__label">
+                      <input type="checkbox">
+                      <span class="form__checkbox__label__inline form__checkbox__label__inline--background">
+                        <span class="form__checkbox__label__icon"><i class="fa-solid fa-check"></i></span>
+                        POSSE課題
+                      </span>
+                    </label>
+                  </li>
+                  <li class="form__checkbox">
+                    <label class="form__checkbox__label">
+                      <input type="checkbox">
+                      <span class="form__checkbox__label__inline form__checkbox__label__inline--background">
+                        <span class="form__checkbox__label__icon"><i class="fa-solid fa-check"></i></span>
+                        POSSE課題
+                      </span>
+                    </label>
+                  </li>
+                  <li class="form__checkbox">
+                    <label class="form__checkbox__label">
+                      <input type="checkbox">
+                      <span class="form__checkbox__label__inline form__checkbox__label__inline--background">
+                        <span class="form__checkbox__label__icon"><i class="fa-solid fa-check"></i></span>
+                        POSSE課題
+                      </span>
+                    </label>
+                  </li>
+                  <li class="form__checkbox">
+                    <label class="form__checkbox__label">
+                      <input type="checkbox">
+                      <span class="form__checkbox__label__inline form__checkbox__label__inline--background">
+                        <span class="form__checkbox__label__icon"><i class="fa-solid fa-check"></i></span>
+                        POSSE課題
+                      </span>
+                    </label>
+                  </li> -->
+                </ul>
               </div>
             </div>
-            <button type="button" class="post-btn d-block mx-auto mt-3 mb-4" id="to-modalLoading" data-toggle="modal"
-              data-target="#modalLoading">記録・投稿</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- modal main -->
+            <div class="form__list">
+              <div class="form__item">
+                <span class="form__title">学習時間</span>
+                <input type="text">
+              </div>
+              <div class="form__item">
+                <span class="form__title">Twitter用コメント</span>
+                <textarea id="js-postTwitter" cols="0" rows="8"></textarea>
+                <label class="form__checkbox__label">
+                  <input id="js-twitter" type="checkbox" checked>
+                  <span class="form__checkbox__label__inline form__checkbox__label__inline--twitter">
+                    <span class="form__checkbox__label__icon form__checkbox__label__icon--twitter">
+                      <i class="fa-solid fa-check"></i>
+                    </span>
+                    Twitterにシェアする
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="modal__footer">
+            <button type="button" class="button form__submit__button" id="js-submit">記録・投稿</button>
+          </div>
+        </form>
 
-  <!-- modal calendar -->
-  <div class="modal fade" id="modalCalendar" tab-index="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&larr;</span>
-        </button>
-        <div class="modal-container">
-          <div class="modal-calendar">
-            <table>
+        <div id="js-calendar" class="modal__container modal__layer calendar" aria-hidden="true">
+          <div class="calendar__inner">
+            <table class="calendar__table">
               <thead>
-                <tr>
-                  <th id="calendarPrev" colspan="2">&lt;</th>
-                  <th id="calendarThisMonth" colspan="3"></th>
-                  <th id="calendarNext" colspan="2">&gt;</th>
+                <tr class="calendar__table__heading">
+                  <th class="calendar__table__heading__prev" id="js-calendarPrev" colspan="2">
+                    <button class="calendar__table__button arrow arrow--prev" id="next">
+                      <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                  </th>
+                  <th class="calendar__table__heading__title" id="js-calendarTitle" colspan="3"></th>
+                  <th class="calendar__table__heading__next" id="js-calendarNext" colspan="2">
+                    <button class="calendar__table__button arrow arrow--next" id="next">
+                      <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                  </th>
                 </tr>
-                <tr class="calendar-day">
+                <tr class="calendar__table__day">
                   <th>Sun</th>
                   <th>Mon</th>
                   <th>Tue</th>
@@ -248,66 +259,42 @@
                   <th>Sat</th>
                 </tr>
               </thead>
-
-              <tbody class="calendar">
+              <tbody class="calendar__table__body" id="js-calendarBody" class="calendar">
               </tbody>
             </table>
-            <button type="button" class="post-btn d-block mx-auto mt-4" id="decideCalendar">決定</button>
+            <div class="modal__footer">
+              <button type="button" class="button calendar__button" id="js-decideCalendar">決定</button>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <!-- modal calendar -->
+        <!-- /.calendar -->
 
-  <!-- modal loading -->
-  <div class="modal fade" id="modalLoading" tab-index="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <div class="modal-container">
-          <div class="loader-wrap">
-            <div class="loader">Loading...</div>
+        <div id="js-loading" class="modal__container modal__layer loading" aria-hidden="true">
+          <div class="loader" aria-label="Loading.."></div>
+        </div>
+        <!-- /.loading -->
+
+        <div id="js-success" class="modal__container modal__layer success" aria-hidden="true">
+          <div class="success__content modal-container text-center">
+            <span class="success__content__heading">AWESOME!</span>
+            <span class="success__content__icon modal-success-color modal-check-mark"><i
+                class="fa-solid fa-check"></i></span>
+            <span class="success__content__text">記録・投稿<br>完了しました</span>
           </div>
         </div>
+        <!-- /.success -->
       </div>
     </div>
   </div>
-  <!-- modal loading -->
-
-  <!-- modal success -->
-  <div class="modal fade" id="modalSuccess" tab-index="-1" aria-hidden="true">
-    <div class="modal-dialog modal-success-dialog">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <div class="modal-container text-center">
-          <p class="modal-success-color">AWESOME!</p>
-          <span class="modal-success-color modal-check-mark"></span>
-          <p>記録・投稿<br>完了しました</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- modal success -->
+  <!-- /.modal -->
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
-    integrity="sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="
-    crossorigin="anonymous"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
+  <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
   <script type="text/javascript" src="./js/calendar/index.js"></script>
   <script type="text/javascript" src="./js/chart/index.js"></script>

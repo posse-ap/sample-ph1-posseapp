@@ -1,6 +1,7 @@
 'use strict'
 
 {
+  const timeChartArea = document.getElementById('js-timeChart')
   const colors = {
     primary: '#0f71bc',
     primaryLight: '#97b9d1',
@@ -132,7 +133,7 @@
         data: timeHour,
         borderRadius: 20,
         borderSkipped: false,
-        barPercentage: .7,
+        barPercentage: .75,
         backgroundColor: function({chart}) {
           const {ctx, chartArea} = chart;
           if (!chartArea) return
@@ -151,9 +152,9 @@
         scales: {
           x: {
             grid: {
-              color: 'transparent',
-              borderColor: 'transparent',
-              tickColor: 'transparent' // マイナス部分
+              color: 'transparent', // 縦線
+              borderColor: 'transparent', // 軸の線
+              tickColor: 'transparent' // マイナス部分の線
             },
             ticks: {
               color: colors.primaryLight,
@@ -169,7 +170,7 @@
             ticks: {
               color: colors.primaryLight,
               callback: (value, index, values) => {
-                // 奇数番目のラベルだけ消す
+                // 奇数番目のラベルだけ消して単位をつける
                 if (index % 2 === 1) return
                 return `${value}h`
               }
@@ -179,7 +180,7 @@
       }
     };
 
-    new Chart(document.getElementById('js-barChart'), config)
+    new Chart(timeChartArea, config)
   }
 
   const createStudyChart = (target, keys, values) => {
